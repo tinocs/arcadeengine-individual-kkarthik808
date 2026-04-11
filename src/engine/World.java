@@ -42,6 +42,7 @@ public abstract class World extends Pane{
 	public abstract void act(long now);
 	public void add(Actor actor) {
 		getChildren().add(actor);
+		actor.addedToWorld();
 	}
 	public <A extends Actor>java.util.List<A> getObjectsAt(double x, double y, java.lang.Class<A> cls) {
 		List<A> actors = getObjects(cls);
@@ -65,6 +66,7 @@ public abstract class World extends Pane{
 	}
 	public boolean isKeyPressed(javafx.scene.input.KeyCode code) {
 		return false;
+		
 	}
 	public boolean isStopped() {
 		return !isRunning;
