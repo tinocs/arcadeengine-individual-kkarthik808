@@ -50,10 +50,10 @@ public abstract class World extends Pane{
 		for(int i = 0; i < actors.size(); i++) {
 			A actor = actors.get(i);
 			if (actor.getBoundsInParent().contains(x, y)) {
-		        actors.add(actor);
+		        addedActors.add(actor);
 		    }
 		}
-		return actors;
+		return addedActors;
 	}
 	public <A extends Actor>java.util.List<A> getObjects(java.lang.Class<A> cls) {
 		List<A> list = new ArrayList<A>();
