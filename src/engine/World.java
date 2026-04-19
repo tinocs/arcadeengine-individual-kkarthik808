@@ -20,6 +20,7 @@ public abstract class World extends Pane{
 	private Set<KeyCode> keysPressed;
 	private boolean isWidthSet;
 	private boolean isHeightSet;
+	private int countDimensionCalls;
 	
 	public World() {
 		isWidthSet = false;
@@ -37,6 +38,7 @@ public abstract class World extends Pane{
 		MyKeyReleasedEventHandler ker = new MyKeyReleasedEventHandler();
 		setOnKeyReleased(ker);
 		myTimer = new MyAnimationTimer();
+		countDimensionCalls=0;;
 	}
 	
 	public abstract void act(long now);
@@ -65,7 +67,7 @@ public abstract class World extends Pane{
 		return list;
 	}
 	public boolean isKeyPressed(javafx.scene.input.KeyCode code) {
-		return false;
+		return keysPressed.contains(code);
 		
 	}
 	public boolean isStopped() {
@@ -89,7 +91,8 @@ public abstract class World extends Pane{
 			if(newValue.intValue()>0) {
 				isWidthSet=true;
 			}
-			if(isWidthSet&&isHeightSet) {
+			if(isWidthSet&&isHeightSet&&countDimensionCalls==0) {
+				countDimensionCalls++;
 				onDimensionsInitialized();
 			}
 		}
@@ -100,7 +103,8 @@ public abstract class World extends Pane{
 			if(newValue.intValue()>0) {
 				isHeightSet=true;
 			}
-			if(isWidthSet&&isHeightSet) {
+			if(isWidthSet&&isHeightSet&&countDimensionCalls==0) {
+				countDimensionCalls++;
 				onDimensionsInitialized();
 			}
 		}

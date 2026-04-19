@@ -23,7 +23,7 @@ public abstract class Actor extends ImageView {
 		List<A> allActors = getWorld().getObjects(cls);
 		List<A> intersectingActors = new ArrayList<A>();
 		for(int i = 0; i < allActors.size(); i++) {
-			if(allActors.get(i).intersects(getBoundsInParent())) {
+			if(allActors.get(i)!=this&& allActors.get(i).intersects(getBoundsInParent())) {
 				intersectingActors.add(allActors.get(i));
 			}
 		}
