@@ -22,11 +22,15 @@ package.bluej
 # Eclipse files
 .project
 .classpath
-.settings/
-bin/
+.settings
+/bin/
 
-# IntelliJ files
-.idea/
+# intellij files
+.idea
+
+#bluej
+package.bluej
+*.ctxt
 
 # Output files
 *.class
