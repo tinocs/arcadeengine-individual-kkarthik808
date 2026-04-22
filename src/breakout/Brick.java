@@ -1,5 +1,13 @@
 package breakout;
-
-public class Brick {
-
+import engine.Actor;
+import javafx.scene.image.Image;
+public class Brick extends Actor{
+	public Brick() {
+		String path = getClass().getClassLoader().getResource("breakoutresources/brick.png").toString();
+		Image img = new Image(path);
+		setImage(img);
+	}
+	public void act(long now) {
+		
+	}
 }
